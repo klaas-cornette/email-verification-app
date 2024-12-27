@@ -16,14 +16,14 @@ export default function Home() {
         }
 
         try {
-            const address = await axios.get("http://localhost:1338/api/emails");
+            const address = await axios.get("https://stfp-db.onrender.com/api/emails");
             address.data.data.forEach((data) => {
                 if (data.address === email) {
                     throw new Error("Email is already taken");
                 }
             });
 
-            const response = await axios.post("http://localhost:1338/api/emails", {
+            const response = await axios.post("https://stfp-db.onrender.com/api/emails", {
                 data: { address: email },
             });
 
